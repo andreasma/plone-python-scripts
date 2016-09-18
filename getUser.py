@@ -34,3 +34,24 @@ for d in results:
     with open('creators.txt', 'ab') as textfile:
         textfile.write(d.Creator)
         textfile.write('\n')
+
+
+
+# Create two sets from the listed items of the two text files and intersect them.
+# Make a list of the matching items and write the items of this list to a text file.
+
+
+data = [line.strip() for line in open("creators.txt", 'r')]
+
+data2 = [line.strip() for line in open("currentusers.txt", 'r')]
+
+set1 = set(data)
+set2 = set(data2)
+set3 = set1.intersection(set2)
+found = []
+for match in set3:
+    found.append(match)
+
+with open('activeusers.txt', 'ab') as activeusers:
+    for item in found:
+        activeusers.write("%s\n" % item)
