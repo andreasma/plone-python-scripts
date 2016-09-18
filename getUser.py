@@ -21,7 +21,14 @@ for f in users:
 
 catalog = api.portal.get_tool(name='portal_catalog')
 
-results = catalog(portal_type="tdf.templateuploadcenter.tupproject")
+results = catalog(portal_type=('tdf.templateuploadcenter.tupcenter',
+                               'tdf.templateuploadcenter.tupproject',
+                               'tdf.templateuploadcenter.tuprelease',
+                               'tdf.templateuploadcenter.tupreleaselink',
+                               'tdf.extensionuploadcenter.eupcenter',
+                               'tdf.extensionuploadcenter.eupproject',
+                               'tdf.extensionuploadcenter.euprelease',
+                               'tdf.extensionuploadcenter.eupreleaselink')
 
 for d in results:
     with open('creators.txt', 'ab') as textfile:
