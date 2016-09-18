@@ -28,7 +28,7 @@ results = catalog(portal_type=('tdf.templateuploadcenter.tupcenter',
                                'tdf.extensionuploadcenter.eupcenter',
                                'tdf.extensionuploadcenter.eupproject',
                                'tdf.extensionuploadcenter.euprelease',
-                               'tdf.extensionuploadcenter.eupreleaselink')
+                               'tdf.extensionuploadcenter.eupreleaselink'))
 
 for d in results:
     with open('creators.txt', 'ab') as textfile:
