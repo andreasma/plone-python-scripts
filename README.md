@@ -5,10 +5,16 @@ full name, the ID, the email-address and the roles and writes the information to
 
 Then he writes the username (ID) to a text file with new lines for every username.
 
-The last step is a catalog search for the creators of tdf.templateuploadcenter.projects and write them
+The next step is a catalog search for the creators of tdf.templateuploadcenter.projects and write them
 line by line to a text file.
 
-Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' you could run this script with:
+In the following part the script creates a list of all active users of the site and in the last part a list of all 
+inactive users.
+
+In the end there are four new files inside the directory.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
 
 `./bin/instance -O testing run getUser.py`
 
