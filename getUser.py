@@ -39,6 +39,7 @@ for d in results:
 
 # Create two sets from the listed items of the two text files and intersect them.
 # Make a list of the matching items and write the items of this list to a text file.
+# The list contains the active users of the site.
 
 
 data = [line.strip() for line in open("creators.txt", 'r')]
@@ -55,3 +56,16 @@ for match in set3:
 with open('activeusers.txt', 'ab') as activeusers:
     for item in found:
         activeusers.write("%s\n" % item)
+
+
+# And here another list with the inactive users
+
+set4 = set1.symmetric_difference(set2)
+
+different = []
+for match in set4:
+    different.append(match)
+
+with open('noactive.txt', 'ab') as noactive:
+    for item in different:
+        noactive.write("%s \n" % item)
