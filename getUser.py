@@ -1,5 +1,18 @@
 from plone import api
 import csv
+import os
+import shutil
+
+# Create a backup directory and move all text/csv files from the former run to that directory
+
+if not os.path.exists('backup'):
+    os.makedirs('backup')
+
+shutil.move("users.csv", "backup/users.csv")
+shutil.move("currentusers.txt", "backup/currentusers.txt")
+shutil.move("creators.txt", "backup/creators.txt")
+shutil.move("activeusers.txt", "backup/activeusers.txt")
+shutil.move("notactive.txt", "backup/notactive.txt")
 
 portal = api.portal.get()
 
