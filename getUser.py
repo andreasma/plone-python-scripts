@@ -2,6 +2,7 @@ from plone import api
 import csv
 import os
 import shutil
+import datetime
 
 # Create a backup directory and move all text/csv files from the former run to that directory
 
@@ -13,6 +14,11 @@ shutil.move("currentusers.txt", "backup/currentusers.txt")
 shutil.move("creators.txt", "backup/creators.txt")
 shutil.move("activeusers.txt", "backup/activeusers.txt")
 shutil.move("notactive.txt", "backup/notactive.txt")
+
+# Rename the backup directory with a the current date
+
+dt = str(datetime.date.today())
+os.rename('backup', 'backup' + '-' + dt)
 
 portal = api.portal.get()
 
