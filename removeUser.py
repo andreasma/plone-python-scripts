@@ -10,6 +10,7 @@ portal = api.portal.get()
 
 with open(listremoveusers, 'r') as f:
     for line in f:
-        unwanteduser = f.line
-        api.user.delete(username=unwanteduser)
+        user=line
+        api.user.delete(username=user)
+        transaction.commit()
     
