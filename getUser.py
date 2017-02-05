@@ -9,11 +9,16 @@ import datetime
 if not os.path.exists('backup'):
     os.makedirs('backup')
 
-shutil.move("users.csv", "backup/users.csv")
-shutil.move("currentusers.txt", "backup/currentusers.txt")
-shutil.move("creators.txt", "backup/creators.txt")
-shutil.move("activeusers.txt", "backup/activeusers.txt")
-shutil.move("notactive.txt", "backup/notactive.txt")
+if os.path.exists('users.csv'):    
+    shutil.move("users.csv", "backup/users.csv")
+if os.path.exists('currentusers.txt'):
+    shutil.move("currentusers.txt", "backup/currentusers.txt")
+if os.path.exists('creators.txt'):
+    shutil.move("creators.txt", "backup/creators.txt")
+if os.path.exists('activeusers.txt'):
+    shutil.move("activeusers.txt", "backup/activeusers.txt")
+if os.path.exists('notactive.txt'):
+    shutil.move("notactive.txt", "backup/notactive.txt")
 
 # Rename the backup directory with a the current date
 
@@ -63,7 +68,8 @@ for d in results:
 
 data = [line.strip() for line in open("creators.txt", 'r')]
 
-data2 = [line.strip() for line in open("currentusers.txt", 'r')]
+data2 = [line.strip() for line in open("currentusers.txt", 'w+')]
+    
 
 set1 = set(data)
 set2 = set(data2)
@@ -81,10 +87,11 @@ with open('activeusers.txt', 'ab') as activeusers:
 
 set4 = set1.symmetric_difference(set2)
 
-different = []
+difference = []
 for match in set4:
-    different.append(match)
-
-with open('noactive.txt', 'ab') as noactive:
-    for item in different:
-        noactive.write("%s \n" % item)
+    difference.append(match)
+    
+with open('notactive.txt', 'ab') as nonactive:
+    for item in difference:
+        nonactive.write("%s \n" % item)
+ 
