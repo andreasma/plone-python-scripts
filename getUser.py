@@ -22,7 +22,8 @@ if os.path.exists('notactive.txt'):
 
 # Rename the backup directory with a the current date
 
-dt = str(datetime.date.today())
+dt = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+
 os.rename('backup', 'backup' + '-' + dt)
 
 portal = api.portal.get()
