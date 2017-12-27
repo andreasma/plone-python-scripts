@@ -19,6 +19,8 @@ if os.path.exists('activeusers.txt'):
     shutil.move("activeusers.txt", "backup/activeusers.txt")
 if os.path.exists('notactive.txt'):
     shutil.move("notactive.txt", "backup/notactive.txt")
+if os.path.exists('extensionsiteadminstrators.txt'):
+    shutil.move("extensionsiteadminstrators.txt", "backup/extensionsiteadminstrators.txt")
 
 # Rename the backup directory with a the current date
 
@@ -46,7 +48,14 @@ for f in users:
         textfile.write(id)
         textfile.write('\n')
 
+admins = api.user.get_users(groupname='Administrators')
 
+for f in admins:
+    id=f.getProperty('id')
+    with open('extensionsiteadminstrators.txt',  'a+' ) as textfile:
+        textfile.write(id)
+        textfile.write('\n')
+        
 
 catalog = api.portal.get_tool(name='portal_catalog')
 
