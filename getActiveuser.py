@@ -82,6 +82,8 @@ data = [line.strip() for line in open("creators.txt", 'r')]
 
 data2 = [line.strip() for line in open("currentusers.txt", 'r')]
 
+data3 = [line.strip() for line in open("extensionsiteadminstrators.txt", 'r')]
+
 set1 = set(data)
 set2 = set(data2)
 set3 = set1.intersection(set2)
@@ -97,9 +99,12 @@ with open('activeusers.txt', 'ab') as activeusers:
 # And here another list with the inactive users
 
 set4 = set1.symmetric_difference(set2)
+set5 = set(data3)
+
+set6 = set4.difference(set5)
 
 difference = []
-for match in set4:
+for match in set6:
     difference.append(match)
     
 with open('notactive.txt', 'ab') as nonactive:
