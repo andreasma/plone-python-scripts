@@ -98,7 +98,7 @@ with open('activeusers.txt', 'ab') as activeusers:
 
 # And here another list with the inactive users
 
-set4 = set1.symmetric_difference(set2)
+set4 = set2.difference(set1)
 set5 = set(data3)
 
 set6 = set4.difference(set5)
