@@ -37,3 +37,24 @@ Usage: If your Plone instance get started with the command ./bin/instance start 
 you could run this script with:
 
 `./bin/instance -O testing run addUser.py`
+
+
+# getActiveuser.py
+
+This Python script connects with Plone via its api. It looks first for the files from a former
+run of the script, move them to a backup subdirectory and rename this backup directory with adding
+the timestamp to the name.
+
+It gets all users from the Plone site and write their full name, ID and email address to a new csv-file
+in the next step. Then it write only the username/ID to a textfile row by row.
+
+It looks for all users of the site that had already contributed to the main content of the site and 
+write the ID/username of this person to a text file then.
+
+The script generated out of the data of this files a list of active and non-active user of the site.
+It substracts from the latter the group of administrators.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run getActiveuser.py`
