@@ -58,3 +58,14 @@ Usage: If your Plone instance get started with the command ./bin/instance start 
 you could run this script with:
 
 `./bin/instance -O testing run getActiveuser.py`
+
+
+# getPrereleases.py
+
+This Python script searches in the Plone portal_catalog for extension and template releases that are only 
+in the state of pre-releases. It write the title of all this pre-releases to a text file.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run getPrereleases.py`
