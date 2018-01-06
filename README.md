@@ -69,3 +69,14 @@ Usage: If your Plone instance get started with the command ./bin/instance start 
 you could run this script with:
 
 `./bin/instance -O testing run getPrereleases.py`
+
+
+# getPrivateprojects.py
+
+This Python script searches the plone_catalog for projects that has not submitted for publication or are not 
+published yet and write them to a text file line by line.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run getPrivateprojects.py`
