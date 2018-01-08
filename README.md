@@ -80,3 +80,15 @@ Usage: If your Plone instance get started with the command ./bin/instance start 
 you could run this script with:
 
 `./bin/instance -O testing run getPrivateprojects.py`
+
+
+# getProjects.py
+
+This Python script searches inside the plone_catalog index for extension and template projects and write to csv text
+files with the title and the URL of the projects.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run getProjects.py`
+
