@@ -112,3 +112,26 @@ with open('notactive.txt', 'ab') as nonactive:
         nonactive.write("%s \n" % item)
  
 
+# move all created text and csv files to a subdirectory with an appropriate time stamp.
+
+if not os.path.exists('backup'):
+    os.makedirs('backup')
+
+if os.path.exists('users.csv'):    
+    shutil.move("users.csv", "backup/users.csv")
+if os.path.exists('currentusers.txt'):
+    shutil.move("currentusers.txt", "backup/currentusers.txt")
+if os.path.exists('creators.txt'):
+    shutil.move("creators.txt", "backup/creators.txt")
+if os.path.exists('activeusers.txt'):
+    shutil.move("activeusers.txt", "backup/activeusers.txt")
+if os.path.exists('notactive.txt'):
+    shutil.move("notactive.txt", "backup/notactive.txt")
+if os.path.exists('extensionsiteadminstrators.txt'):
+    shutil.move("extensionsiteadminstrators.txt", "backup/extensionsiteadminstrators.txt")
+
+# Rename the backup directory with a the current date
+
+dt = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+
+os.rename('backup', 'backup' + '-' + dt)
