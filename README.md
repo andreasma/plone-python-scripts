@@ -92,3 +92,15 @@ you could run this script with:
 
 `./bin/instance -O testing run getProjects.py`
 
+
+# getReleasecompatibility.py
+
+This Python script searches the plone_catalog for releases that are compatible with the currently latest stable version
+of LibreOffice (version 5.4) and write a list with their further compatibilities to a csv-file.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run getReleasecompatibility.py`
+
+
