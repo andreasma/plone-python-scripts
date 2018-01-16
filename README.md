@@ -104,3 +104,14 @@ you could run this script with:
 `./bin/instance -O testing run getReleasecompatibility.py`
 
 
+# removeListofusers.py
+
+This Python script asks for a text file with the list of usernames that should be removed from a Plone instance. It prints
+every username before it remove it from the instance.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run revmoveListofusers.py`
+
+
