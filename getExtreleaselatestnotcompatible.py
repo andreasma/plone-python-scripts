@@ -5,19 +5,30 @@ portal = api.portal.get()
 
 catalog = api.portal.get_tool(name='portal_catalog')
 
-allreleases = catalog(portal_type=('tdf.templateuploadcenter.tuprelease',
-                               'tdf.templateuploadcenter.tupreleaselink',
-                               'tdf.extensionuploadcenter.euprelease',
-                               'tdf.extensionuploadcenter.eupreleaselink'))
+allextensionreleases = catalog(portal_type=('tdf.extensionuploadcenter.euprelease',
+                                            'tdf.extensionuploadcenter.eupreleaselink'))
 
-for d in allreleases:
+alltemplatereleases = catalog(portal_type=('tdf.templateuploadcenter.tuprelease',
+                                           'tdf.templateuploadcenter.tupreleaselink',))
+
+for d in allextensionreleases:
     if not 'LibreOffice 6.0' in d.compatibility_choice:
         releasetitle = d.Title
         compatibility = d.compatibility_choice
         url = ('/' .join (d.getObject().getPhysicalPath()))
-        print (compatibility)
-        with open('releasecompatibility.csv', 'ab') as csvfile:
+        with open('extensionreleasecompatibility.csv', 'ab') as csvfile:
            complist = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
            complist.writerow([releasetitle, url, compatibility])
     else:
-        print ('keine oder nur Releases ohne Kompatibiltaet zu 6.0')
+        print ('no extension releases compatible with version 6.0')
+
+for d in alltemplatereleases:
+    if not 'LibreOffice 6.0' in d.compatibility_choice:
+        releasetitle = d.Title
+        compatibility = d.compatibility_choice
+        url = ('/' .join (d.getObject().getPhysicalPath()))
+        with open('templatereleasecompatibility.csv', 'ab') as csvfile:
+           complist = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+           complist.writerow([releasetitle, url, compatibility])
+    else:
+        print ('no template releases compatible with version 6.0')
