@@ -117,7 +117,7 @@ you could run this script with:
 
 # getExtreleaselatestnotcompatible.py
 
-This Python script searches the plone_catalog for releases that are not compatible with the latest version of
+This Python script searches the Plone portal_catalog for releases that are not compatible with the latest version of
 LibreOffice (version 6.0) and write a list with their further compatibilities to a csv-file. It creates two different 
 csv-files, one for extension releases and the second for template releases.
 
@@ -127,4 +127,12 @@ you could run this script with:
 `./bin/instance -O testing run getExtreleaselatestnotcompatible.py'
 
 
+# getProjectstate.py
 
+This Python script searches through the Plone portal_catalog for projects and write their title, review_state and URL
+to a csv file.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run getProjectstate.py'
