@@ -15,7 +15,7 @@ for d in allextprojects:
      name = d.Title
 
      with open('extensionprojects.csv', 'ab') as et:
-         pt = csv.writer(et, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+         pt = csv.writer(et, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
          pt.writerow([name, st, url])
 
 
@@ -26,5 +26,5 @@ for t in alltempprojects:
      name = t.Title
 
      with open('templateprojects.csv', 'ab') as tup:
-         ptemp = csv.writer(tup, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+         ptemp = csv.writer(tup, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
          ptemp.writerow([name, st, url])
