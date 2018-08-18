@@ -136,3 +136,14 @@ Usage: If your Plone instance get started with the command ./bin/instance start 
 you could run this script with:
 
 `./bin/instance -O testing run getProjectstate.py'
+
+
+# getReleasestate.py
+
+This Python script searches through the Plone portal_catalog for releases and linked releases and write 
+their title, review_state and URL to a csv file.
+
+Usage: If your Plone instance get started with the command ./bin/instance start and is e.g. named 'testing' 
+you could run this script with:
+
+`./bin/instance -O testing run getReleasestate.py'
